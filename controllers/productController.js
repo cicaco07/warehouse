@@ -116,6 +116,23 @@ class ProductController {
       });
     }
   }
+
+  async getProductStats(req, res) {
+    try {
+      const stats = await productService.getProductStats();
+
+      res.status(200).json({
+        success: true,
+        data: stats
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        message: 'Terjadi kesalahan pada server',
+        error: error.message
+      });
+    }
+  }
 }
 
 module.exports = new ProductController();

@@ -98,20 +98,17 @@ class ProductService {
   async getProductStats() {
     const merekId = null;
     const produkWithMerek = await Produk.findOne({ where: { merekId: !merekId}})
-    const totalBarang = await Barang.count();
-    const totalStok = await Barang.sum('stok');
-    const barangHabis = await Barang.count({ where: { stok: 0 } });
-    const barangMinim = await Barang.count({ 
+    const totalStok = await Produk.findOne({ where: { stok: {[Op.gt]: 6} } });
+    const hargaProduk = await Produk.findOne({ 
       where: { 
-        stok: { [Op.gt]: 0, [Op.lte]: 10 } 
+        price: { [Op.between]: ["100.000", "200.000"], } 
       } 
     });
 
     return {
-      totalBarang,
-      totalStok: totalStok || 0,
-      barangHabis,
-      barangMinim
+      produkWithMerek,
+      totalStok,
+      hargaProduk
     };
   }
 }
