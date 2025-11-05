@@ -1,0 +1,71 @@
+POST http://localhost:3000/api/merek
+Content-Type: application/json
+
+{
+  "name" : "Test Merk 3",
+  "deskripsi" : "Deskripsi Merek 3"
+}
+
+###
+
+GET http://localhost:3000/api/merek
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/api/merek/3
+Content-Type: application/json
+
+###
+
+PUT http://localhost:3000/api/merek/2
+Content-Type: application/json
+
+{
+  "name" : "Test Merk 2 Updated",
+  "deskripsi" : "Deskripsi Merek Updated"
+}
+
+### 
+
+DELETE http://localhost:3000/api/merek/3
+Content-Type: application/json
+
+###
+
+POST http://localhost:3000/api/product
+Content-Type: application/json
+
+{
+  "name" : "Produk 2",
+  "price" : "155000",
+  "stock": 5,
+  "deskripsi" : "Deskripsi produk 2",
+  "merekId": 2
+}
+
+### 
+
+GET http://localhost:3000/api/product
+Content-Type: application/json
+### 
+
+GET http://localhost:3000/api/product/1
+Content-Type: application/json
+### 
+
+PUT http://localhost:3000/api/product/1
+Content-Type: application/json
+
+{
+  "name" : "Produk 1",
+  "price" : "3000000",
+  "stock": 5,
+  "deskripsi" : "Deskripsi produk 1",
+  "merekId": 2
+}
+
+### 
+
+DELETE http://localhost:3000/api/product/1
+Content-Type: application/json
